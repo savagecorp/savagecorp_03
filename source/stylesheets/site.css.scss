@@ -1,0 +1,313 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+@font-face {
+    font-family: 'neo-noir';
+    src: url('../fonts/SNNeoNoire-Regular-webfont.eot');
+    src: url('../fonts/SNNeoNoire-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/SNNeoNoire-Regular-webfont.woff2') format('woff2'),
+         url('../fonts/SNNeoNoire-Regular-webfont.woff') format('woff'),
+         url('../fonts/SNNeoNoire-Regular-webfont.ttf') format('truetype'),
+         url('../fonts/SNNeoNoire-Regular-webfont.svg#sn_neonoireregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Colors
+$dark: #0F0F0F;
+$grey: #DFE0E4;
+
+// Selection Highlights
+::-moz-selection { background: red; color: white;}
+::selection { background: red; color: white;}
+
+// Base Styling
+body {
+  margin: 0;
+  padding: 0;
+  background: $grey url('/images/bg_image.png') center top no-repeat;
+  color: $dark;
+  text-align: center;
+  font-family: 'Roboto', BlinkMacSystemFont, "Avenir Next", "Avenir", "Segoe UI", "Lucida Grande", "Helvetica Neue", "Helvetica", "Fira Sans", "Roboto", "Noto", "Droid Sans", "Cantarell", "Oxygen", "Ubuntu", "Franklin Gothic Medium", "Century Gothic", "Liberation Sans", sans-serif;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 0;
+  transition: all 0.5s ease;
+}
+
+h3 {
+  transition: all 0.5s ease;
+  margin: 0; 
+  padding: 0;
+  font-weight: 300;
+  font-size: 16px;
+  text-align: center;
+  line-height: 1.575;
+  a {color: red; text-decoration: none;
+    &:hover {border-bottom: 2px solid red;}
+  }
+}
+p {
+  margin: 0;
+  padding: 1rem 0;
+  font-size: 16px; 
+  line-height: 1.575;
+  font-weight: 300;
+}
+
+.bttn {display: block; text-align: center;}
+.bttn {
+  color: $dark;
+  background: none;
+  padding: 1rem;
+  text-decoration: none;
+  border: 2px solid $dark;
+  font-weight: 400;
+  transition: all 0.5s ease;
+  &:hover {
+    color: #FFF;
+    background: $dark;
+  }
+}
+
+
+//  Initiate flex
+.header, .project, .client_logos_wrap {
+    -ms-box-orient: horizontal;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: column wrap;
+    flex-flow: column wrap;
+  }
+
+
+// responsive images
+.ios_img {width: 100%;}
+.lap01_img, .lap02_img {width: 100%;}
+
+// specifically order objects for smaller screens
+.proj_desc { order: 0;}
+.proj_desc {
+  p { display: none; }
+  .appstore {text-align: left;}
+}
+.ios_l {order: 1;}
+.appstore {order: 2;}
+
+// mobile spacing
+.project {
+  margin: 2rem 0;
+  border-top: 1px solid #E3E4E8;
+  div {margin: 0.75rem 0;}
+}
+
+.proj_desc {
+  padding-top: 1rem;
+}
+
+.header {
+  margin: 4.125rem 0;
+}
+
+.logo {
+  color: $dark;
+  font-size: 1.75rem;
+  font-family: "neo-noir", "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin-bottom: 1rem;
+  transition: all 0.5s ease;
+  &:hover {
+    color: red;
+  }
+}
+
+.clients {
+  margin: 5rem 0 10rem 0;
+  h3 {font-weight: 700;}
+  .client_logos_wrap, p:nth-of-type(1) {display: none;}
+}
+
+footer {
+  background: $dark;
+  padding: 1rem 1.5rem;
+  color: $grey;
+  .bttn {
+    color: $grey;
+    border: 2px solid $grey;
+    font-weight: 400;
+    transition: all 0.5s ease;
+    &:hover {
+      color: $dark;
+      background: $grey;
+    }
+  }
+}
+
+.clients .content {
+  width: 100%; 
+  margin: 0 auto;
+  h3 {font-weight: 700; padding-bottom: 2rem;}
+}
+
+
+@media screen and (min-width:450px) {
+  h1 {font-size: 3rem;}
+  .proj_img {text-align: center;}
+  .ios_img {width: 398px;}
+}
+
+@media screen and (min-width:600px) {
+  // body {background: lightblue;}
+  .container { padding: 0 48px; }
+  h3 {font-weight: 700; font-size: 1.375rem;}
+  h3 a {display: none;}
+  .clients {
+    .client_logos_wrap {display: block; text-align: center;}
+    h3, .client_logos_wrap {display: block;}
+    .client_logo {
+      opacity: 0.4;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+  .proj_desc {
+    p { display: inherit; }
+    a {
+      color: $dark;
+      font-weight: 700;
+      text-decoration: none;
+      &:hover {
+        color: $dark;
+        border-bottom: 2px solid $dark;
+      }
+      &.app-bttn:hover {
+        border-bottom: 0px solid $dark;
+      }
+    }
+    .app-bttn {margin-right: 10px;}
+  }
+  .ios_r, .ios_l {text-align: center;}
+  .lap01_img, .lap02_img {width: 500px;}
+  .header {
+    -webkit-flex-flow: row;
+    flex-flow: row;
+    justify-content: space-between;
+  }
+  footer {
+    padding: 1rem 3rem;
+  }
+}
+
+@media screen and (min-width:780px) {
+  body, h3 { text-align: left;}
+  h1 {
+    font-size: 5.25rem;
+    margin: 0 0 7.5rem 0;
+  }
+
+  .project, .client_logos_wrap {
+    -webkit-flex-flow: row;
+    flex-flow: row;
+    justify-content: space-between;
+    border-top: 0px;
+  }
+  .proj_desc { order: 0;}
+  .ios_l {order: 0;}
+  .appstore {order: 0;}
+  h1 {
+    font-size: 3.675rem;
+    margin: 0 0 7.5rem 0;
+  }
+  h3 {
+    font-size: 1.675rem;
+    line-height: 1.25;
+  }
+  .logo {font-size: 3rem;}
+  .project {
+    margin: 0 0 4rem 0;
+    .ios_l {margin-right: 40px; z-index: 0;}
+    .ios_r {margin-left: 40px; z-index: 0;}
+    &.lessmarg {margin-bottom: 2rem;}
+    &.moremarg {margin-bottom: 10rem;}
+  }
+  .proj_desc {
+    -ms-box-orient: horizontal;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 460px;
+    z-index: 2;
+  }
+
+  .project .ios_r .lp_mi {
+    margin-left: -242px;
+  }
+
+  .project .ios_l .lp_bond {
+    position: relative;
+    margin-right: -402px;
+    left: -210px;
+    top: 60px;
+  }
+
+  .project .ios_l .lp_soma {
+    position: relative;
+    margin-right: -236px;
+    left: -80px;
+    top: 90px;
+  }
+
+
+  .lap01_img, .lap02_img {
+    width: inherit;
+  }
+
+  .clients .content {
+    padding: 5rem 0 0 0;
+  }
+
+  .clients {
+    margin-bottom: 200px;
+    max-width: 725px;
+    margin: 0 auto;
+    text-align: center;
+    p {text-align: left;}
+  }
+
+  .client_logos_wrap {
+    -webkit-flex-flow: row wrap;
+     flex-flow: row wrap;
+     justify-content: flex-start;
+     margin-bottom: 120px;
+     .client_logo {
+      width: 50%;
+      img {
+        flex-basis: auto;
+      }
+    }
+  }
+
+}
+
